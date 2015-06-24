@@ -8,24 +8,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//typedef struct hola sthola;
-typedef struct sthola{
+typedef struct hola sthola;
+struct hola{
 int cont;
 int data;
-struct sthola *p2next;
-}sthola;
+sthola *p2next;
+};
 
 
 void addblock(int dato, sthola *lista);                     //si agrego bloque, le indico el dato a usar y la direccion de mi estructura
 void delblock(int num_of_block_to_del,sthola *lista);
 sthola* readblock(int num_of_blok_to_read, sthola *lista);
 
-void addblock(int dato,sthola *lista){
+void addblock(int dato,sthola* lista){
 int i;
 sthola *ptr= (sthola*) calloc(1,sizeof(sthola));        //asigno el puntero al nuevo bloque, reservando memoria y haciendo un casteo del puntero
 sthola *recorrer=lista;                                 //creo un nuevo puntero utilizado para recorrer
 if(lista == NULL){                                     //en caso de que el arreglo este vacio
-lista->cont=0;                                          //su ubicacion es 0
+(lista->cont)=0;                                          //su ubicacion es 0
 lista->p2next=ptr;                                      
 ptr->data=dato;
 ptr->p2next=NULL;
